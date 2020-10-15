@@ -44,8 +44,15 @@ public class MutantStatsTest {
     }
     @Test
     void contructorTest() {
-        MutantStats mutantStats = new MutantStats((long) 2 , (long) 1,"20.0");
-        Object esperado = mutantStats;
-        Assertions.assertEquals(esperado,mutantStats);
+        MutantStats mutant = new MutantStats((long) 2 , (long) 1,"20.0");
+        Object esperado = mutant;
+        Assertions.assertEquals(esperado,mutant);
+    }
+
+    @Test
+    void toStringTest() {
+        MutantStats stats = new MutantStats((long) 2 , (long) 1,"20.0");
+        String esperado = mutantStats.toString();
+        Assertions.assertEquals(esperado, mutantStats.toString());
     }
 }

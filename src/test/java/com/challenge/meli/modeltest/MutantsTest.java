@@ -46,5 +46,9 @@ public class MutantsTest {
 
     @Test
     void toStringTest() {
+        String[] array = {"AAAA"};
+        Mutants muti = new Mutants((long) 1 , array);
+        String esperado = mutants.toString();
+        Assertions.assertEquals(esperado, mutants.toString());
     }
 }

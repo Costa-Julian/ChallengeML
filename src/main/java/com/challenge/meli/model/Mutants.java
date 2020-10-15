@@ -36,6 +36,7 @@ public class Mutants {
     @Override
     public String toString() {
         return "Mutants{" +
-                "id=" + id + ", dna=" + Arrays.toString(dna) + '}';
+                "id=" + id + "," +
+                " dna=" + Arrays.toString(dna) + '}';
     }
 }

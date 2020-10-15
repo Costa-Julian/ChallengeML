@@ -40,4 +40,13 @@ public class DnaSavedTest {
         Object esperado = dna;
         Assertions.assertEquals(esperado,dna);
     }
+
+    @Test
+    void toStringTest() {
+        DnaSaved dna = new DnaSaved((long) 5 , "Mutant");
+        String esperado = dna.toString();
+        Assertions.assertEquals(esperado,dna.toString());
+
+
+    }
 }
