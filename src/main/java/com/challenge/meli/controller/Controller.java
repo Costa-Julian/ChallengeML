@@ -26,7 +26,7 @@ public class Controller {
     @Autowired
     Methods methods;
 
-    @PostMapping(value = "dna"  , consumes = "application/json")
+    @PostMapping(value = "mutant"  , consumes = "application/json")
     public ResponseEntity<Object> dna(@RequestBody Mutants dna){
         boolean retorno = methods.isMutant(dna,vectorA,vectorC,vectorG);
         methods.saveRecord(retorno);
