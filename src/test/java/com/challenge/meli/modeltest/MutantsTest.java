@@ -44,6 +44,7 @@ public class MutantsTest {
         Assertions.assertEquals(esperado,mutante);
     }
 
-
-
+    @Test
+    void toStringTest() {
+    }
 }
