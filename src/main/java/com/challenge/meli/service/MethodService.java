@@ -1,10 +1,10 @@
 package com.challenge.meli.service;
 
 
-import com.challenge.meli.model.Mutant;
+import com.challenge.meli.model.Mutants;
 
 public interface MethodService {
-    boolean isMutant(Mutant dna,
+    boolean isMutant(Mutants dna,
                      String[] vectorA,
                      String[] vectorC,
                      String[] vectorG);

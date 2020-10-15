@@ -1,10 +1,11 @@
 package com.challenge.meli.controller;
 
 
-import com.challenge.meli.model.Mutant;
-import com.challenge.meli.repository.RepoMutant;
+
 import com.challenge.meli.returns.MutantStats;
-import com.challenge.meli.service.MethodService;
+import com.challenge.meli.model.Mutants;
+import com.challenge.meli.repository.RepoMutant;
+import com.challenge.meli.service.Methods;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,10 +22,10 @@ public class Controller {
     @Autowired
     RepoMutant repo;
     @Autowired
-    MethodService methods;
+    Methods methods;
 
     @PostMapping(value = "dna"  , consumes = "application/json")
-    public boolean dna(@RequestBody Mutant dna){
+    public boolean dna(@RequestBody Mutants dna){
         boolean retorno = methods.isMutant(dna,vectorA,vectorC,vectorG);
         methods.saveRecord(retorno);
         return retorno;

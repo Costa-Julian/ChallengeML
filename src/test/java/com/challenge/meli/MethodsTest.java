@@ -1,6 +1,6 @@
 package com.challenge.meli;
 
-import com.challenge.meli.model.Mutant;
+import com.challenge.meli.model.Mutants;
 import com.challenge.meli.service.Methods;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -15,7 +15,7 @@ public class MethodsTest {
 
     @Test
     void isMutantTrue() {
-        Mutant mutant = new Mutant();
+        Mutants mutant = new Mutants();
         String[] matriz = {"ATGCGA",
                             "CAGTGC",
                             "TTATGT",
@@ -29,7 +29,7 @@ public class MethodsTest {
 
     @Test
     void isMutantFalse() {
-        Mutant mutant = new Mutant();
+        Mutants mutant = new Mutants();
         String[] matriz = {"ATGCGA",
                 "CAGTGC",
                 "HHHHHH",

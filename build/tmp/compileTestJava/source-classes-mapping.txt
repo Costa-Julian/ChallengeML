@@ -1,6 +1,0 @@
-com/challenge/meli/MeliApplicationTests.java
- com.challenge.meli.MeliApplicationTests
-com/challenge/meli/DnaSavedRecordsTest.java
- com.challenge.meli.DnaSavedRecordsTest
-com/challenge/meli/MethodsTest.java
- com.challenge.meli.MethodsTest

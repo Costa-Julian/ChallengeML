@@ -1,6 +1,6 @@
 package com.challenge.meli.service;
 
-import com.challenge.meli.model.Mutant;
+import com.challenge.meli.model.*;
 import com.challenge.meli.repository.RepoMutant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,9 +12,8 @@ public class Methods implements MethodService{
     @Autowired
     RepoMutant repo;
 
-
     @Override
-    public boolean isMutant(Mutant mutante, String[] vectorA, String[] vectorC, String[] vectorG) {
+    public boolean isMutant(Mutants mutante, String[] vectorA, String[] vectorC, String[] vectorG) {
         String[] dna = mutante.getDna();
         boolean band = false;
         int filasGral = 0;
@@ -72,6 +71,8 @@ public class Methods implements MethodService{
         }
         return band;
     }
+
+
 
     @Override
     public String ratio() {
