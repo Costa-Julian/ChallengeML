@@ -16,6 +16,6 @@ spring:
     is-connection-validation-required: true
   jpa:
     hibernate:
-      hbm2ddlAuto: 'create'
+      hbm2ddlAuto: 'create-drop'
       showSql: true
     generate-ddl: true
