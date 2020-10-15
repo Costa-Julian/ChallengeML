@@ -46,6 +46,7 @@ public class MethodsTest {
     }
     @Test
     void ratioTestFalse(){
-        Assertions.assertNotEquals(methods.ratio() + 1,methods.ratio());
+        String esperado = methods.ratio() + ",";
+        Assertions.assertNotEquals(esperado,methods.ratio());
     }
 }
