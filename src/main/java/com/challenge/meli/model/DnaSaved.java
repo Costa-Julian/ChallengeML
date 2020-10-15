@@ -5,12 +5,12 @@ import javax.persistence.*;
 @Table(name = "mutant")
 public class DnaSaved {
 
-        @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private Long id;
-        private String dnaMutant;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String dnaMutant;
 
-        public DnaSaved(){}
+    public DnaSaved(){}
 
     public DnaSaved(Long id, String dna) {
         this.id = id;

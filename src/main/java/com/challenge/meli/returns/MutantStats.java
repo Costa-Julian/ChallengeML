@@ -1,7 +1,9 @@
 package com.challenge.meli.returns;
 
 
+import org.springframework.stereotype.Service;
 
+@Service
 public class MutantStats {
 
     private Long count_human_dna;

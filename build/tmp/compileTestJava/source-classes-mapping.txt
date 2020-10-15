@@ -1,0 +1,12 @@
+com/challenge/meli/modeltest/DnaSavedTest.java
+ com.challenge.meli.modeltest.DnaSavedTest
+com/challenge/meli/returntest/MutantStatsTest.java
+ com.challenge.meli.returntest.MutantStatsTest
+com/challenge/meli/servicetest/MethodsTest.java
+ com.challenge.meli.servicetest.MethodsTest
+com/challenge/meli/modeltest/MutantsTest.java
+ com.challenge.meli.modeltest.MutantsTest
+com/challenge/meli/MeliApplicationTests.java
+ com.challenge.meli.MeliApplicationTests
+com/challenge/meli/controller/ControllerTest.java
+ com.challenge.meli.controller.ControllerTest

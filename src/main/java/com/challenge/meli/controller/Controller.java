@@ -7,6 +7,8 @@ import com.challenge.meli.model.Mutants;
 import com.challenge.meli.repository.RepoMutant;
 import com.challenge.meli.service.Methods;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,10 +27,13 @@ public class Controller {
     Methods methods;
 
     @PostMapping(value = "dna"  , consumes = "application/json")
-    public boolean dna(@RequestBody Mutants dna){
+    public ResponseEntity<Object> dna(@RequestBody Mutants dna){
         boolean retorno = methods.isMutant(dna,vectorA,vectorC,vectorG);
         methods.saveRecord(retorno);
-        return retorno;
+        if (retorno==true){
+            return ResponseEntity.ok("200-OK");
+        }else
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).body("403-Forbidden");
     }
     @GetMapping("stats")
     public MutantStats showStats(){

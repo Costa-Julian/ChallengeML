@@ -4,10 +4,10 @@ com/challenge/meli/returns/MutantStats.java
  com.challenge.meli.returns.MutantStats
 com/challenge/meli/repository/RepoMutant.java
  com.challenge.meli.repository.RepoMutant
-com/challenge/meli/service/MethodService.java
- com.challenge.meli.service.MethodService
 com/challenge/meli/model/DnaSaved.java
  com.challenge.meli.model.DnaSaved
+com/challenge/meli/service/MethodService.java
+ com.challenge.meli.service.MethodService
 com/challenge/meli/service/Methods.java
  com.challenge.meli.service.Methods
 com/challenge/meli/model/Mutants.java
