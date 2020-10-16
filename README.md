@@ -11,4 +11,4 @@ resibe un json con la siguente forma
 
 la url del metodo get es : 
 
-https://mlchallenge.herokuapp.com/stats.
+https://mlchallenge.herokuapp.com/stats
