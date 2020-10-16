@@ -9,16 +9,16 @@ import org.springframework.transaction.annotation.Transactional;
 public interface RepoMutant extends JpaRepository<DnaSaved,Integer> {
     @Modifying
     @Transactional
-    @Query(value = "INSERT INTO mutant (dna)  VALUES ('mutante')" , nativeQuery = true)
+    @Query(value = "INSERT INTO mutant (dna_mutant)  VALUES ('mutante')" , nativeQuery = true)
     void insertMutantTrue();
     @Modifying
     @Transactional
-    @Query(value = "INSERT INTO mutant (dna) VALUES ('NO mutante')" , nativeQuery = true )
+    @Query(value = "INSERT INTO mutant (dna_mutant) VALUES ('NO mutante')" , nativeQuery = true )
     void insertMutantFalse();
 
-    @Query(value = "select count(*) from mutant where dna LIKE  'mutante'" , nativeQuery = true)
+    @Query(value = "select count(*) from mutant where dna_mutant LIKE  'mutante'" , nativeQuery = true)
     long countMutant();
 
-    @Query(value = "select count(*) from mutant where dna LIKE  'NO mutante'" , nativeQuery = true)
+    @Query(value = "select count(*) from mutant where dna_mutant LIKE  'NO mutante'" , nativeQuery = true)
     long countHuman();
 }
