@@ -4,7 +4,6 @@ import com.challenge.meli.model.Mutants;
 import com.challenge.meli.service.Methods;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -12,7 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 public class MethodsTest {
 
     @Autowired
-    Methods methods;
+    private Methods methods;
 
 
     @Test
@@ -61,8 +60,7 @@ public class MethodsTest {
     }
     @Test
     void ratioTestFalse(){
-        String esperado = methods.ratio() + ",";
-        Assertions.assertNotEquals(esperado,methods.ratio());
+        Assertions.assertNotEquals("00.0",methods.ratio());
     }
 
     @Test
