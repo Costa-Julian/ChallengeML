@@ -1,0 +1,77 @@
+1) salvo que te especifiquen lo contrario siempre devolver json
+2) siempre que haces un service tenes que ponerle loqueseaService como nombre por estandarizacion
+3) los nombres de los servicios tienen que representar lo que hacen o son (PersonaService, MutanteService, etc)
+4) lo mismo para los repositories (PersonaRepository, MutanteRepository, etc)
+5) lo mismo para los controllers (ControllerRepository, ControllerRepository, etc)
+6) Mutants Los nombres de clases de dominio (entities) en singular Mutant (es un solo mutante) mutants seria una collection de Mutant
+
+
+7) JPA no native querys IMPORTANTE MUY IMPORTANTE
+
+8) double restultado;
+        if (repo.countHuman() != 0) {
+            restultado = (double)repo.countMutant() /(double)repo.countHuman();
+        }else
+            restultado = 0;
+        }
+se puede reemplazar por una sola linea
+un ternario 
+
+double restultado = repo.countHuman() != 0 ?  (double)repo.countMutant() /(double)repo.countHuman() : restultado = 0;
+
+
+9) DecimalFormat format = new DecimalFormat("#.00");
+return format.format(restultado);		
+
+esto tambien return new DecimalFormat("#.00").format(restultado);
+
+
+10) if (registro == true){
+    repo.insertMutantTrue();
+}else
+    repo.insertMutantFalse();
+
+esto tambien ternario
+
+registro ? repo.insertMutantTrue() : repo.insertMutantFalse();
+
+
+11) Si el ejercicio no lo pide pasar un vector como parámetro podria ser tomado como algo poco performante
+
+podrian estar en el servicio en vez del controller
+String[] vectorA = {"AAAA"};
+String[] vectorC = {"CCCC"};
+String[] vectorG = {"GGGG"};
+
+
+
+12)
+
+MutantStats returns =new MutantStats();
+returns.setCount_mutant_dna(repo.countMutant());
+returns.setCount_human_dna(repo.countHuman());
+returns.setRatio(methods.ratio());
+return returns;
+
+podrias ponerlo en un constructor y te queda en una linea
+
+return new MutantStats(repo.countMutant(), repo.countHuman(), methods.ratio())
+
+   
+13) 
+    private Long count_human_dna;
+    private Long count_mutant_dna;
+
+mantener nombres de variables con estandarizacion camelCase
+
+@JSONProperties
+
+14)
+
+@Service
+public class Mutants {
+@Service
+public class MutantStats {
+
+@Service innecesario MUY MUY MAL al tener variables ese servicio se hacen variables de sesion y por ende el servicio no es multitrheading OJO MUCHO OJO DONDE DEJAS UN @SERVICE O UN @CONTROLLER!!!
+
