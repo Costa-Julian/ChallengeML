@@ -36,14 +36,14 @@ public class ClassMethodsService implements IMethodService {
                                     dna[filasAG + 2].charAt(lugarAG) == vectorG[0].charAt(2) &&
                                     dna[filasAG + 3].charAt(lugarAG) == vectorG[0].charAt(3) ){
                                 band = true;
-                                // return band;
+                                return band;
                             }else if (lugarAG + 3<dna[filasGral].length() &&
                                     dna[filasAG].charAt(lugarAG) == vectorC[0].charAt(0) &&
                                     dna[filasAG].charAt(lugarAG + 1) == vectorC[0].charAt(1) &&
                                     dna[filasAG].charAt(lugarAG + 2) == vectorC[0].charAt(2) &&
                                     dna[filasAG].charAt(lugarAG + 3) == vectorC[0].charAt(3)){
                                 band = true;
-                                // return band;
+                                return band;
                             }
                             lugarAG++;
                         }
@@ -64,7 +64,7 @@ public class ClassMethodsService implements IMethodService {
                                     dna[filasGC].charAt(lugarGC + 2) == vectorC[0].charAt(2) &&
                                     dna[filasGC].charAt(lugarGC + 3) == vectorC[0].charAt(3)) {
                                 band = true;
-                                //return band;
+                                return band;
                             }
                             lugarGC++;
                         }
@@ -77,9 +77,7 @@ public class ClassMethodsService implements IMethodService {
         }
         return band;
     }
-
-
-
+    
     @Override
     public String ratio() {
         double restultado = repo.findByHuman() != 0 ?

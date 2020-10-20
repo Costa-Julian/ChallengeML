@@ -8,11 +8,11 @@ com/challenge/meli/returns/MutantStats.java
  com.challenge.meli.returns.MutantStats
 com/challenge/meli/repository/MutantRepository.java
  com.challenge.meli.repository.MutantRepository
-com/challenge/meli/controller/MutantController.java
- com.challenge.meli.controller.MutantController
-com/challenge/meli/service/IMethodService.java
- com.challenge.meli.service.IMethodService
 com/challenge/meli/model/MutantEntity.java
  com.challenge.meli.model.MutantEntity
+com/challenge/meli/service/IMethodService.java
+ com.challenge.meli.service.IMethodService
+com/challenge/meli/controller/MutantController.java
+ com.challenge.meli.controller.MutantController
 com/challenge/meli/service/ClassMethodsService.java
  com.challenge.meli.service.ClassMethodsService
