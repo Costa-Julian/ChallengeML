@@ -1,39 +1,40 @@
 package com.challenge.meli.returns;
 
 
-import org.springframework.stereotype.Service;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-@Service
 public class MutantStats {
-
-    private Long count_human_dna;
-    private Long count_mutant_dna;
+    @JsonProperty("count_human_dna")
+    private Long countHumanDna;
+    @JsonProperty("count_mutant_dna")
+    private Long countMutantDna;
+    @JsonProperty("ratio")
     private String ratio;
 
 
 
     public MutantStats(){}
 
-    public MutantStats(Long count_human_dna, Long count_mutant_dna, String ratio) {
-        this.count_human_dna = count_human_dna;
-        this.count_mutant_dna = count_mutant_dna;
+    public MutantStats(Long countHumanDna, Long countMutantDna, String ratio) {
+        this.countHumanDna = countHumanDna;
+        this.countMutantDna = countMutantDna;
         this.ratio = ratio;
     }
 
-    public Long getCount_human_dna() {
-        return count_human_dna;
+    public Long getCountHumanDna() {
+        return countHumanDna;
     }
 
-    public void setCount_human_dna(Long count_human_dna) {
-        this.count_human_dna = count_human_dna;
+    public void setCountHumanDna(Long countHumanDna) {
+        this.countHumanDna = countHumanDna;
     }
 
-    public Long getCount_mutant_dna() {
-        return count_mutant_dna;
+    public Long getCountMutantDna() {
+        return countMutantDna;
     }
 
-    public void setCount_mutant_dna(Long count_mutant_dna) {
-        this.count_mutant_dna = count_mutant_dna;
+    public void setCountMutantDna(Long countMutantDna) {
+        this.countMutantDna = countMutantDna;
     }
 
     public String getRatio() {
@@ -47,8 +48,8 @@ public class MutantStats {
     @Override
     public String toString() {
         return "MutantStats{" +
-                "count_human_dna=" + count_human_dna +
-                ", count_mutant_dna=" + count_mutant_dna +
+                "count_human_dna=" + countHumanDna +
+                ", count_mutant_dna=" + countMutantDna +
                 ", ratio=" + ratio +
                 '}';
     }

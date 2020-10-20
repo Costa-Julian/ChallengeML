@@ -1,16 +1,16 @@
 package com.challenge.meli.service;
 
 import com.challenge.meli.model.*;
-import com.challenge.meli.repository.RepoMutant;
+import com.challenge.meli.repository.MutantRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.text.DecimalFormat;
 
 @Service
-public class Methods implements MethodService{
+public class ClassMethodsService implements IMethodService {
     @Autowired
-    RepoMutant repo;
+    MutantRepository repo;
 
     @Override
     public boolean isMutant(Mutants mutante, String[] vectorA, String[] vectorC, String[] vectorG) {
@@ -76,20 +76,19 @@ public class Methods implements MethodService{
 
     @Override
     public String ratio() {
-        double restultado;
-        if (repo.countHuman() != 0) {
-            restultado = (double)repo.countMutant() /(double)repo.countHuman();
-        }else
-            restultado = 0;
-        DecimalFormat format = new DecimalFormat("#.00");
-        return format.format(restultado);
+        double restultado = repo.findByHuman() != 0 ?
+                        (double)repo.findByMutant() /
+                        (double)repo.findByHuman() :  0;
+        return new DecimalFormat("0.00#").format(restultado);
     }
 
     @Override
     public void saveRecord(Boolean registro) {
-        if (registro == true){
+        if (registro) {
             repo.insertMutantTrue();
-        }else
+        } else {
             repo.insertMutantFalse();
+        }
+
     }
 }

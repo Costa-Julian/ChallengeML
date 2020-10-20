@@ -3,33 +3,33 @@ package com.challenge.meli.returntest;
 import com.challenge.meli.returns.MutantStats;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 public class MutantStatsTest {
-    @Autowired
-    MutantStats mutantStats;
+
+    MutantStats mutantStats = new MutantStats();
+
 
     @Test
     void getSetCount_human_dnaTest() {
-        mutantStats.setCount_human_dna((long) 200);
-        Assertions.assertEquals(200,mutantStats.getCount_human_dna());
+        mutantStats.setCountHumanDna((long) 200);
+        Assertions.assertEquals(200,mutantStats.getCountHumanDna());
     }
     @Test
     void getSetCount_human_dnaTestNotEquals() {
-        mutantStats.setCount_human_dna((long) 200);
-        Assertions.assertNotEquals(222,mutantStats.getCount_human_dna());
+        mutantStats.setCountHumanDna((long) 200);
+        Assertions.assertNotEquals(222,mutantStats.getCountHumanDna());
     }
     @Test
     void getSetCount_mutant_dnaTest() {
-        mutantStats.setCount_mutant_dna((long) 200);
-        Assertions.assertEquals(200,mutantStats.getCount_mutant_dna());
+        mutantStats.setCountMutantDna((long) 200);
+        Assertions.assertEquals(200,mutantStats.getCountMutantDna());
     }
     @Test
     void getSetCount_mutant_dnaTestNotEquals() {
-        mutantStats.setCount_mutant_dna((long) 200);
-        Assertions.assertNotEquals(222,mutantStats.getCount_mutant_dna());
+        mutantStats.setCountMutantDna((long) 200);
+        Assertions.assertNotEquals(222,mutantStats.getCountMutantDna());
     }
 
     @Test

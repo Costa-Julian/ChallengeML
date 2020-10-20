@@ -1,10 +1,7 @@
 package com.challenge.meli.model;
 
-import org.springframework.stereotype.Service;
-
-
 import java.util.Arrays;
-@Service
+
 public class Mutants {
 
     private Long id;

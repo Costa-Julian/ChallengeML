@@ -3,7 +3,7 @@ package com.challenge.meli.service;
 
 import com.challenge.meli.model.Mutants;
 
-public interface MethodService {
+public interface IMethodService {
     boolean isMutant(Mutants dna,
                      String[] vectorA,
                      String[] vectorC,

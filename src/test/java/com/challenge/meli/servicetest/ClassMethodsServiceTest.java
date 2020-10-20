@@ -1,17 +1,17 @@
 package com.challenge.meli.servicetest;
 
 import com.challenge.meli.model.Mutants;
-import com.challenge.meli.service.Methods;
+import com.challenge.meli.service.ClassMethodsService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-public class MethodsTest {
+public class ClassMethodsServiceTest {
 
     @Autowired
-    private Methods methods;
+    private ClassMethodsService classMethodsService;
 
 
     @Test
@@ -25,7 +25,7 @@ public class MethodsTest {
         String[] vectorA = {"AAAA"};
         String[] vectorC = {"CCCC"};
         String[] vectorG = {"GGGG"};
-        Assertions.assertTrue(methods.isMutant(mutant,vectorA,vectorC,vectorG));
+        Assertions.assertTrue(classMethodsService.isMutant(mutant,vectorA,vectorC,vectorG));
     }
 
     @Test
@@ -39,7 +39,7 @@ public class MethodsTest {
         String[] vectorA = {"AAAA"};
         String[] vectorC = {"CCCC"};
         String[] vectorG = {"GGGG"};
-        Assertions.assertTrue(methods.isMutant(mutant,vectorA,vectorC,vectorG));
+        Assertions.assertTrue(classMethodsService.isMutant(mutant,vectorA,vectorC,vectorG));
     }
     @Test
     void isMutantFalse() {
@@ -52,21 +52,21 @@ public class MethodsTest {
         String[] vectorA = {"AAAA"};
         String[] vectorC = {"CCCC"};
         String[] vectorG = {"GGGG"};
-        Assertions.assertFalse(methods.isMutant(mutant,vectorA,vectorC,vectorG));
+        Assertions.assertFalse(classMethodsService.isMutant(mutant,vectorA,vectorC,vectorG));
     }
     @Test
     void ratioTestTrue(){
-        Assertions.assertEquals(methods.ratio(),methods.ratio());
+        Assertions.assertEquals(classMethodsService.ratio(), classMethodsService.ratio());
     }
     @Test
     void ratioTestFalse(){
-        Assertions.assertNotEquals("00.0",methods.ratio());
+        Assertions.assertNotEquals("00.0", classMethodsService.ratio());
     }
 
     @Test
     void saveRecordsTest() {
         boolean registro = true;
-        methods.saveRecord(registro);
+        classMethodsService.saveRecord(registro);
 
     }
 }
