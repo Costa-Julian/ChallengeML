@@ -1,7 +1,7 @@
 package com.challenge.meli.controller;
 
 
-import com.challenge.meli.model.Mutants;
+import com.challenge.meli.model.*;
 import com.challenge.meli.repository.MutantRepository;
 import com.challenge.meli.returns.MutantStats;
 import com.challenge.meli.service.ClassMethodsService;
@@ -29,7 +29,7 @@ public class MutantControllerTest {
                 "CCCCGG",
                 "CAGTGC",
                 "TTATGT"};
-        Mutants mutants = new Mutants();
+        MutantEntity mutants = new MutantEntity();
         mutants.setDna(matriz);
         ResponseEntity<String> retorno = ResponseEntity.ok("{\"Status\" : \"200 ok\"}");
         Assertions.assertEquals(retorno, mutantController.dna(mutants));
@@ -42,7 +42,7 @@ public class MutantControllerTest {
                 "CACCGG",
                 "TTATAT",
                 "CACCGG"};
-        Mutants mutants = new Mutants();
+        MutantEntity mutants = new MutantEntity();
         mutants.setDna(matriz);
         ResponseEntity<String> retorno = ResponseEntity.ok("{\"Status\" : \"403-Forbidden\"}");
         Assertions.assertNotEquals(retorno, mutantController.dna(mutants));

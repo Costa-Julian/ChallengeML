@@ -2,14 +2,14 @@ package com.challenge.meli.model;
 
 import java.util.Arrays;
 
-public class Mutants {
+public class MutantEntity {
 
     private Long id;
     private String[] dna;
 
-    public Mutants(){}
+    public MutantEntity(){}
 
-    public Mutants(Long id, String[] dna) {
+    public MutantEntity(Long id, String[] dna) {
         this.id = id;
         this.dna = dna;
     }

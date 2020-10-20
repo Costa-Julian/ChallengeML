@@ -1,6 +1,6 @@
 package com.challenge.meli.servicetest;
 
-import com.challenge.meli.model.Mutants;
+import com.challenge.meli.model.MutantEntity;
 import com.challenge.meli.service.ClassMethodsService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -16,7 +16,7 @@ public class ClassMethodsServiceTest {
 
     @Test
     void isMutantTrue() {
-        Mutants mutant = new Mutants();
+        MutantEntity mutant = new MutantEntity();
         String[] matriz = {"ATGCGA",
                             "CAGTGC",
                             "TTATGT",
@@ -30,7 +30,7 @@ public class ClassMethodsServiceTest {
 
     @Test
     void isMutantSecondOptionTrue() {
-        Mutants mutant = new Mutants();
+        MutantEntity mutant = new MutantEntity();
         String[] matriz = {"CTGCGA",
                 "CAGTGC",
                 "TTATGT",
@@ -43,7 +43,7 @@ public class ClassMethodsServiceTest {
     }
     @Test
     void isMutantFalse() {
-        Mutants mutant = new Mutants();
+        MutantEntity mutant = new MutantEntity();
         String[] matriz = {"ATGCGA",
                 "CAGTGC",
                 "HHHHHH",

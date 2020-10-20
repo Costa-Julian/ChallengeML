@@ -3,7 +3,7 @@ package com.challenge.meli.controller;
 
 
 import com.challenge.meli.returns.MutantStats;
-import com.challenge.meli.model.Mutants;
+import com.challenge.meli.model.*;
 import com.challenge.meli.repository.MutantRepository;
 import com.challenge.meli.service.ClassMethodsService;
 import com.challenge.meli.service.VectoresService;
@@ -26,7 +26,7 @@ public class MutantController {
 
 
     @PostMapping(value = "mutant"  , consumes = "application/json")
-    public ResponseEntity<Object> dna(@RequestBody Mutants dna){
+    public ResponseEntity<Object> dna(@RequestBody MutantEntity dna){
 
         boolean retorno = classMethodsService.isMutant(dna,
                 VectoresService.getVectorA(),
