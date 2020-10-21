@@ -1,6 +1,6 @@
 package com.challenge.meli.modeltest;
 
-import com.challenge.meli.model.MutantEntity;
+import com.challenge.meli.model.dto.MutantDTO;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -9,7 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 public class MutantEntityTest {
 
-    MutantEntity mutants = new MutantEntity();
+    MutantDTO mutants = new MutantDTO();
 
     @Test
     void getSetIdTest() {
@@ -39,7 +39,7 @@ public class MutantEntityTest {
     @Test
     void constructorTest() {
         String[] array = {"AAA","BBB"};
-        MutantEntity mutante = new MutantEntity((long)1,array);
+        MutantDTO mutante = new MutantDTO((long)1,array);
         Object esperado = mutante;
         Assertions.assertEquals(esperado,mutante);
     }
@@ -47,7 +47,7 @@ public class MutantEntityTest {
     @Test
     void toStringTest() {
         String[] array = {"AAAA"};
-        MutantEntity muti = new MutantEntity((long) 1 , array);
+        MutantDTO muti = new MutantDTO((long) 1 , array);
         String esperado = mutants.toString();
         Assertions.assertEquals(esperado, mutants.toString());
     }

@@ -1,12 +1,10 @@
 package com.challenge.meli.controller;
 
 
-
-import com.challenge.meli.returns.MutantStats;
-import com.challenge.meli.model.*;
-import com.challenge.meli.repository.MutantRepository;
-import com.challenge.meli.service.ClassMethodsService;
-import com.challenge.meli.service.VectoresService;
+import com.challenge.meli.model.dto.MutantDTO;
+import com.challenge.meli.model.dto.MutantStatsDTO;
+import com.challenge.meli.service.impl.MutantService;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,30 +17,28 @@ import org.springframework.web.bind.annotation.RestController;
 public class MutantController {
 
     @Autowired
-    MutantRepository repo;
-    @Autowired
-    ClassMethodsService classMethodsService;
-
-
+    MutantService mutantService;
 
     @PostMapping(value = "mutant"  , consumes = "application/json")
-    public ResponseEntity<Object> dna(@RequestBody MutantEntity dna){
+    public ResponseEntity dna(@RequestBody MutantDTO mutantDTO){
+        boolean retorno = mutantService.isMutant(mutantDTO.getDna());
+        mutantService.saveRecord(retorno);
+        /*
+        String loquesea;
+        if(condicion)
+          loquesea = "1";
+        else
+          loquesea = "2";
+        */
+        String loquesea = condicion ? "1" : "2";
 
-        boolean retorno = classMethodsService.isMutant(dna,
-                VectoresService.getVectorA(),
-                VectoresService.getVectorC(),
-                VectoresService.getVectorG());
-        classMethodsService.saveRecord(retorno);
-        if (retorno==true){
-            return ResponseEntity.ok("{\"Status\" : \"200 ok\"}");
-        }else
-        return ResponseEntity.status(HttpStatus.FORBIDDEN)
-                .body("{\"Status\" : \"403-Forbidden\"}");
+        HttpStatus httpStatus = retorno ? HttpStatus.OK : HttpStatus.FORBIDDEN;
+        return new ResponseEntity(new JSONObject().put("Status", httpStatus.name()).toString(), httpStatus);
     }
     @GetMapping("stats")
-    public MutantStats showStats(){
-        return new MutantStats(repo.findByHuman(),
-                repo.findByMutant(),
-                classMethodsService.ratio());
+    public MutantStatsDTO showStats(){
+        return new MutantStatsDTO(mutantService.findByHuman(),
+                mutantService.findByMutant(),
+                mutantService.ratio());
     }
 }
