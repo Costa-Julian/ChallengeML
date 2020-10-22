@@ -1,10 +1,10 @@
 package com.challenge.meli.controller;
 
 
-import com.challenge.meli.model.*;
+import com.challenge.meli.model.dto.MutantDTO;
 import com.challenge.meli.repository.MutantRepository;
-import com.challenge.meli.returns.MutantStats;
-import com.challenge.meli.service.ClassMethodsService;
+import com.challenge.meli.model.dto.MutantStatsDTO;
+import com.challenge.meli.service.impl.MutantService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -19,7 +19,7 @@ public class MutantControllerTest {
     @Autowired
     MutantRepository repo;
     @Autowired
-    ClassMethodsService classMethodsService;
+    MutantService classMethodsService;
 
     @Test
     void dnaTestOK() {
@@ -29,7 +29,7 @@ public class MutantControllerTest {
                 "CCCCGG",
                 "CAGTGC",
                 "TTATGT"};
-        MutantEntity mutants = new MutantEntity();
+        MutantDTO mutants = new MutantDTO();
         mutants.setDna(matriz);
         ResponseEntity<String> retorno = ResponseEntity.ok("{\"Status\" : \"200 ok\"}");
         Assertions.assertEquals(retorno, mutantController.dna(mutants));
@@ -42,7 +42,7 @@ public class MutantControllerTest {
                 "CACCGG",
                 "TTATAT",
                 "CACCGG"};
-        MutantEntity mutants = new MutantEntity();
+        MutantDTO mutants = new MutantDTO();
         mutants.setDna(matriz);
         ResponseEntity<String> retorno = ResponseEntity.ok("{\"Status\" : \"403-Forbidden\"}");
         Assertions.assertNotEquals(retorno, mutantController.dna(mutants));
@@ -50,7 +50,7 @@ public class MutantControllerTest {
 
     @Test
     void showStatsTest() {
-        MutantStats esperado =new MutantStats();
+        MutantStatsDTO esperado =new MutantStatsDTO();
         esperado.setCountMutantDna(repo.findByMutant());
         esperado.setCountHumanDna(repo.findByHuman());
         esperado.setRatio(classMethodsService.ratio());

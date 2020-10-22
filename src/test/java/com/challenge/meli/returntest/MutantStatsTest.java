@@ -1,6 +1,6 @@
 package com.challenge.meli.returntest;
 
-import com.challenge.meli.returns.MutantStats;
+import com.challenge.meli.model.dto.MutantStatsDTO;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -8,7 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 public class MutantStatsTest {
 
-    MutantStats mutantStats = new MutantStats();
+    MutantStatsDTO mutantStats = new MutantStatsDTO();
 
 
     @Test
@@ -44,14 +44,14 @@ public class MutantStatsTest {
     }
     @Test
     void contructorTest() {
-        MutantStats mutant = new MutantStats((long) 2 , (long) 1,"20.0");
+        MutantStatsDTO mutant = new MutantStatsDTO((long) 2 , (long) 1,"20.0");
         Object esperado = mutant;
         Assertions.assertEquals(esperado,mutant);
     }
 
     @Test
     void toStringTest() {
-        MutantStats stats = new MutantStats((long) 2 , (long) 1,"20.0");
+        MutantStatsDTO stats = new MutantStatsDTO((long) 2 , (long) 1,"20.0");
         String esperado = mutantStats.toString();
         Assertions.assertEquals(esperado, mutantStats.toString());
     }

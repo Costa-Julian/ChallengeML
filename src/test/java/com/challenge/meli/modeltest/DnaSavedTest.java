@@ -1,7 +1,7 @@
 package com.challenge.meli.modeltest;
 
 
-import com.challenge.meli.model.DnaSaved;
+import com.challenge.meli.model.Dna;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -9,7 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 public class DnaSavedTest {
 
-    DnaSaved dnaSavedRecords = new DnaSaved();
+    Dna dnaSavedRecords = new Dna();
 
 
     @Test
@@ -36,17 +36,16 @@ public class DnaSavedTest {
 
     @Test
     void constructorTest() {
-        DnaSaved dna = new DnaSaved((long) 5 , "Mutant");
+        Dna dna = new Dna((long) 5 , "Mutant");
         Object esperado = dna;
         Assertions.assertEquals(esperado,dna);
     }
 
     @Test
     void toStringTest() {
-        DnaSaved dna = new DnaSaved((long) 5 , "Mutant");
+        Dna dna = new Dna((long) 5 , "Mutant");
         String esperado = dna.toString();
         Assertions.assertEquals(esperado,dna.toString());
-
-
     }
+
 }

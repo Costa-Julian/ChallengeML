@@ -1,7 +1,7 @@
 package com.challenge.meli.servicetest;
 
-import com.challenge.meli.model.MutantEntity;
-import com.challenge.meli.service.ClassMethodsService;
+import com.challenge.meli.model.dto.MutantDTO;
+import com.challenge.meli.service.impl.MutantService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,12 +11,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 public class ClassMethodsServiceTest {
 
     @Autowired
-    private ClassMethodsService classMethodsService;
+    private MutantService classMethodsService;
 
 
     @Test
     void isMutantTrue() {
-        MutantEntity mutant = new MutantEntity();
+        MutantDTO mutant = new MutantDTO();
         String[] matriz = {"ATGCGA",
                             "CAGTGC",
                             "TTATGT",
@@ -30,7 +30,7 @@ public class ClassMethodsServiceTest {
 
     @Test
     void isMutantSecondOptionTrue() {
-        MutantEntity mutant = new MutantEntity();
+        MutantDTO mutant = new MutantDTO();
         String[] matriz = {"CTGCGA",
                 "CAGTGC",
                 "TTATGT",
@@ -43,7 +43,7 @@ public class ClassMethodsServiceTest {
     }
     @Test
     void isMutantFalse() {
-        MutantEntity mutant = new MutantEntity();
+        MutantDTO mutant = new MutantDTO();
         String[] matriz = {"ATGCGA",
                 "CAGTGC",
                 "HHHHHH",
