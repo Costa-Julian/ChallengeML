@@ -77,7 +77,7 @@ public class ClassMethodsService implements IMethodService {
         }
         return band;
     }
-    
+
     @Override
     public String ratio() {
         double restultado = repo.findByHuman() != 0 ?
