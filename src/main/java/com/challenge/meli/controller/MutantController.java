@@ -23,22 +23,15 @@ public class MutantController {
     public ResponseEntity dna(@RequestBody MutantDTO mutantDTO){
         boolean retorno = mutantService.isMutant(mutantDTO.getDna());
         mutantService.saveRecord(retorno);
-        /*
-        String loquesea;
-        if(condicion)
-          loquesea = "1";
-        else
-          loquesea = "2";
-        */
-        String loquesea = condicion ? "1" : "2";
-
         HttpStatus httpStatus = retorno ? HttpStatus.OK : HttpStatus.FORBIDDEN;
         return new ResponseEntity(new JSONObject().put("Status", httpStatus.name()).toString(), httpStatus);
     }
     @GetMapping("stats")
     public MutantStatsDTO showStats(){
-        return new MutantStatsDTO(mutantService.findByHuman(),
-                mutantService.findByMutant(),
+        return new MutantStatsDTO(mutantService.countHuman(),
+                mutantService.countMutant(),
                 mutantService.ratio());
+    }
+
     }
 }

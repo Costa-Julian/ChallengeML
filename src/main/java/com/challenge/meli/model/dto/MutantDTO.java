@@ -22,7 +22,8 @@ public class MutantDTO {
 
     @Override
     public String toString() {
-        return "Mutants{" +
-                " dna=" + Arrays.toString(dna) + '}';
+        return "MutantDTO{" +
+                "dna=" + Arrays.toString(dna) +
+                '}';
     }
 }

@@ -11,16 +11,7 @@ public class MutantEntityTest {
 
     MutantDTO mutants = new MutantDTO();
 
-    @Test
-    void getSetIdTest() {
-        mutants.setId((long)1);
-        Assertions.assertEquals(1,mutants.getId());
-    }
-    @Test
-    void getSetIdTestNotEquals() {
-        mutants.setId((long)1);
-        Assertions.assertNotEquals(2,mutants.getId());
-    }
+
 
     @Test
     void getSetDnaTest() {
@@ -39,7 +30,7 @@ public class MutantEntityTest {
     @Test
     void constructorTest() {
         String[] array = {"AAA","BBB"};
-        MutantDTO mutante = new MutantDTO((long)1,array);
+        MutantDTO mutante = new MutantDTO(array);
         Object esperado = mutante;
         Assertions.assertEquals(esperado,mutante);
     }
@@ -47,7 +38,7 @@ public class MutantEntityTest {
     @Test
     void toStringTest() {
         String[] array = {"AAAA"};
-        MutantDTO muti = new MutantDTO((long) 1 , array);
+        MutantDTO muti = new MutantDTO(array);
         String esperado = mutants.toString();
         Assertions.assertEquals(esperado, mutants.toString());
     }

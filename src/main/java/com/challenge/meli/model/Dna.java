@@ -1,5 +1,7 @@
 package com.challenge.meli.model;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import javax.persistence.*;
 @Entity
 @Table(name = "mutant")
@@ -8,7 +10,7 @@ public class Dna {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    @Column(name = "is_Mutant")
     private Boolean isMutant;
 
     public Dna(){}
@@ -32,4 +34,12 @@ public class Dna {
   public void setMutant(Boolean mutant) {
     isMutant = mutant;
   }
+
+    @Override
+    public String toString() {
+        return "Dna{" +
+                "id=" + id +
+                ", isMutant=" + isMutant +
+                '}';
+    }
 }

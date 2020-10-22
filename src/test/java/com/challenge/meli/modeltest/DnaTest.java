@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-public class DnaSavedTest {
+public class DnaTest {
 
     Dna dnaSavedRecords = new Dna();
 

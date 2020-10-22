@@ -1,7 +1,6 @@
 package com.challenge.meli.service.impl;
 
 import com.challenge.meli.model.*;
-import com.challenge.meli.model.dto.MutantDTO;
 import com.challenge.meli.repository.MutantRepository;
 import com.challenge.meli.service.IMutantService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +10,7 @@ import java.text.DecimalFormat;
 
 @Service
 public class MutantService implements IMutantService {
+
     @Autowired
     MutantRepository mutantRepository;
 
@@ -18,6 +18,9 @@ public class MutantService implements IMutantService {
     private static String[] vectorC = {"CCCC"};
     private static String[] vectorG = {"GGGG"};
 
+
+
+    @Override
     public boolean isMutant(String[] dna) {
         boolean band = false;
         int filasGral = 0;
@@ -82,11 +85,13 @@ public class MutantService implements IMutantService {
         return band;
     }
 
+
+
     @Override
     public String ratio() {
-        double restultado = mutantRepository.findByHuman() != 0 ?
-                        (double) mutantRepository.findByMutant() /
-                        (double) mutantRepository.findByHuman() :  0;
+        double restultado = mutantRepository.findByIsMutantFalse() != 0 ?
+                        (double) mutantRepository.findByIsMutantTrue() /
+                        (double) mutantRepository.findByIsMutantFalse() :  0;
         return new DecimalFormat("0.00#").format(restultado);
     }
 
@@ -95,11 +100,15 @@ public class MutantService implements IMutantService {
       mutantRepository.saveAndFlush(new Dna(registro));
     }
 
-    public Long findByMutant(){
-      return mutantRepository.findByMutant();
+    @Override
+    public Long countMutant() {
+        return mutantRepository.findByIsMutantTrue();
     }
 
-    public Long findByHuman(){
-      return mutantRepository.findByHuman();
+    @Override
+    public Long countHuman() {
+        return mutantRepository.findByIsMutantFalse();
     }
+
+
 }
