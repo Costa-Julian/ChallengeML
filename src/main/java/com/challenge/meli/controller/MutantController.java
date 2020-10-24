@@ -33,5 +33,5 @@ public class MutantController {
                 mutantService.ratio());
     }
 
-    }
+
 }

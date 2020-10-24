@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.function.BooleanSupplier;
+
 @SpringBootTest
 public class DnaTest {
 
@@ -25,25 +27,25 @@ public class DnaTest {
 
     @Test
     void getSetDnaMutantTest() {
-       dnaSavedRecords.setDnaMutant("Mutant");
-       Assertions.assertEquals("Mutant",dnaSavedRecords.getDnaMutant());
+       dnaSavedRecords.setMutant(true);
+       Assertions.assertTrue(dnaSavedRecords.getMutant());
     }
     @Test
     void getSetDnaMutantTestNotEquals() {
-        dnaSavedRecords.setDnaMutant("Mutant");
-        Assertions.assertNotEquals("No Mutant",dnaSavedRecords.getDnaMutant());
+        dnaSavedRecords.setMutant(false);
+        Assertions.assertFalse(dnaSavedRecords.getMutant());
     }
 
     @Test
     void constructorTest() {
-        Dna dna = new Dna((long) 5 , "Mutant");
+        Dna dna = new Dna(false);
         Object esperado = dna;
-        Assertions.assertEquals(esperado,dna);
+        Assertions.assertFalse(dna.getMutant());
     }
 
     @Test
     void toStringTest() {
-        Dna dna = new Dna((long) 5 , "Mutant");
+        Dna dna = new Dna(true);
         String esperado = dna.toString();
         Assertions.assertEquals(esperado,dna.toString());
     }

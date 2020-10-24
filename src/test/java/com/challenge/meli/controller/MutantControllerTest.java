@@ -28,7 +28,7 @@ public class MutantControllerTest {
                 "TTATGT"};
         MutantDTO mutants = new MutantDTO();
         mutants.setDna(matriz);
-        ResponseEntity<String> retorno = ResponseEntity.ok("{\"Status\" : \"200 ok\"}");
+        ResponseEntity<String> retorno = ResponseEntity.ok("{\"Status\":\"OK\"}");
         Assertions.assertEquals(retorno, mutantController.dna(mutants));
     }
     @Test
@@ -48,8 +48,8 @@ public class MutantControllerTest {
     @Test
     void showStatsTest() {
         MutantStatsDTO esperado =new MutantStatsDTO();
-        esperado.setCountMutantDna(mutantService.findByMutant());
-        esperado.setCountHumanDna(mutantService.findByHuman());
+        esperado.setCountMutantDna(mutantService.countMutant());
+        esperado.setCountHumanDna(mutantService.countHuman());
         esperado.setRatio(mutantService.ratio());
         Assertions.assertEquals(esperado.getRatio(), mutantController.showStats().getRatio());
         Assertions.assertEquals(esperado.getCountHumanDna(), mutantController.showStats().getCountHumanDna());

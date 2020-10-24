@@ -1,6 +1,6 @@
 package com.challenge.meli.servicetest;
 
-import com.challenge.meli.model.dto.MutantDTO;
+
 import com.challenge.meli.service.impl.MutantService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-public class ClassMethodsServiceTest {
+public class MethodsServiceTest {
 
     @Autowired
     private MutantService classMethodsService;
@@ -16,43 +16,28 @@ public class ClassMethodsServiceTest {
 
     @Test
     void isMutantTrue() {
-        MutantDTO mutant = new MutantDTO();
         String[] matriz = {"ATGCGA",
                             "CAGTGC",
                             "TTATGT",
                             "AGAAGG"};
-        mutant.setDna(matriz);
-        String[] vectorA = {"AAAA"};
-        String[] vectorC = {"CCCC"};
-        String[] vectorG = {"GGGG"};
-        Assertions.assertTrue(classMethodsService.isMutant(mutant,vectorA,vectorC,vectorG));
+        Assertions.assertTrue(classMethodsService.isMutant(matriz));
     }
 
     @Test
     void isMutantSecondOptionTrue() {
-        MutantDTO mutant = new MutantDTO();
         String[] matriz = {"CTGCGA",
                 "CAGTGC",
                 "TTATGT",
                 "CCCCGG"};
-        mutant.setDna(matriz);
-        String[] vectorA = {"AAAA"};
-        String[] vectorC = {"CCCC"};
-        String[] vectorG = {"GGGG"};
-        Assertions.assertTrue(classMethodsService.isMutant(mutant,vectorA,vectorC,vectorG));
+        Assertions.assertTrue(classMethodsService.isMutant(matriz));
     }
     @Test
     void isMutantFalse() {
-        MutantDTO mutant = new MutantDTO();
         String[] matriz = {"ATGCGA",
                 "CAGTGC",
                 "HHHHHH",
                 "AGAAGG"};
-        mutant.setDna(matriz);
-        String[] vectorA = {"AAAA"};
-        String[] vectorC = {"CCCC"};
-        String[] vectorG = {"GGGG"};
-        Assertions.assertFalse(classMethodsService.isMutant(mutant,vectorA,vectorC,vectorG));
+        Assertions.assertFalse(classMethodsService.isMutant(matriz));
     }
     @Test
     void ratioTestTrue(){
